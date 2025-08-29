@@ -1,117 +1,190 @@
 # AI Compliance & Culture Architect 🤖⚖️
+Seamlessly generate industry-specific company profiles, handbooks, and policy documents directly within your CRM and ERP.
 
-**Seamlessly generate industry-specific company profiles, handbooks, and policy documents directly within your CRM.**
+![License](https://img.shields.io/badge/license-Proprietary-red.svg)
+![Status](https://img.shields.io/badge/status-Active-brightgreen.svg)
+![AI Engine](https://img.shields.io/badge/AI-GPT--4-blueviolet.svg)
+![CRM](https://img.shields.io/badge/CRM-HubSpot%20|%20Salesforce%20|%20Zoho-blue.svg)
+![ERP](https://img.shields.io/badge/ERP-SAP%20|%20Oracle-green.svg)
+![Docs](https://img.shields.io/badge/docs-Available-informational.svg)
+![Contributions](https://img.shields.io/badge/contributions-Welcome-yellow.svg)
+![Security](https://img.shields.io/badge/security-Encrypted-important.svg)
 
-[![License](https://img.shields.io/badge/License-Proprietary-informational)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)](https://github.com/yourusername/ai-compliance-architect)
-[![AI](https://img.shields.io/badge/Powered%20By-OpenAI%20GPT--4-blue)](https://openai.com/)
-[![Integration](https://img.shields.io/badge/CRM-HubSpot%20%7C%20Salesforce%20%7C%20Zoho-orange)](https://github.com/yourusername/ai-compliance-architect)
+---
 
 ## Overview 🌟
+The **AI Compliance & Culture Architect** is a powerful integration that transforms your CRM and ERP into a dynamic policy and document generation hub.  
+Leveraging advanced AI, it automatically creates **tailored, industry-specific compliance documents, employee handbooks, and company profiles**—saving countless hours, ensuring consistency, and mitigating regulatory risks.
 
-The **AI Compliance & Culture Architect** is a powerful integration that transforms your CRM into a dynamic policy and document generation hub. Leveraging advanced AI, it automatically creates tailored, industry-specific compliance documents, employee handbooks, and company profiles, ensuring consistency, saving countless hours of manual work, and mitigating regulatory risk.
+> Stop copying and pasting from outdated templates.  
+> Generate precise, professional, and compliant documents in seconds. ⚡
 
-Stop copying and pasting from outdated templates. Generate precise, professional, and compliant documents in seconds.
+---
 
 ## Key Features ✨
+- 🧠 **AI-Powered Document Generation**: Instantly draft company profiles, codes of conduct, safety manuals, and NDAs.  
+- 🏭 **Industry-Specific Intelligence**: Content tailored to legal and cultural nuances (Healthcare, Finance, Tech, Manufacturing, etc.).  
+- 🔗 **Deep CRM & ERP Integration**: Works seamlessly with **HubSpot, Salesforce, Zoho, SAP, Oracle**, and more — directly in your CRM/ERP sidebar.  
+- 📑 **Dynamic Template Library**: Constantly updated library of customizable document templates for every business need.  
+- ⚖️ **Compliance Guardrails**: Built-in checks to align with GDPR, CCPA, HIPAA, and other frameworks.*  
+- ♻️ **Version Control & Audit Trail**: Automatic change tracking and document history for auditing.  
 
-*   **🧠 AI-Powered Document Generation:** Instantly create drafts for company profiles, codes of conduct, safety manuals, and non-disclosure agreements.
-*   **🏭 Industry-Specific Intelligence:** Generates documents tailored to the legal and cultural nuances of your industry (Healthcare, Finance, Tech, etc.).
-*   **🔗 Deep CRM Integration:** Works seamlessly within your existing CRM (HubSpot, Salesforce, Zoho) using custom objects and sidebar apps. No context switching required.
-*   **📑 Dynamic Template Library:** Access a constantly updated library of document templates for every business need, all customizable through a simple form.
-*   **⚖️ Compliance Guardrails:** Built-in checks to help ensure generated content adheres to core regulatory frameworks like GDPR, CCPA, and HIPAA*.
-*   **♻️ Version Control & Audit Trail:** Automatically track changes and maintain a history of all generated documents for auditing purposes.
+> *Note: Always have legal counsel review AI-generated content before official use.
 
-_*Note: Always have legal counsel review AI-generated content._
+---
 
-## How It Works 🔧
+## Architecture ⚙️
+
+### High-Level Architecture
+```mermaid
+flowchart TD
+    User([CRM/ERP User]) -->|Open Sidebar| CRM[CRM/ERP Platform]
+    CRM --> App[AI Compliance Architect App]
+    App --> Backend[Backend Service (Node.js)]
+    Backend -->|Prompt/Response| AI[OpenAI GPT-4 API]
+    Backend --> Storage[(Secure Storage: S3/Azure Blob)]
+    Storage --> CRM
+    CRM --> User
+````
+
+* **Frontend**: React.js app embedded inside CRM/ERP sidebar
+* **Backend**: Node.js server for business logic
+* **AI Layer**: Secure proxy for GPT-4 interactions
+* **Storage**: CRM custom objects for metadata + cloud for PDFs
+* **Security**: Encrypted API calls, secret storage
+
+---
+
+### Workflow: Document Generation
 
 ```mermaid
 sequenceDiagram
-    participant User as CRM User
-    participant CRM as CRM Platform
-    participant App as AI Architect App
-    participant AI as AI Engine (GPT-4)
-    participant DB as Document Vault
+    participant U as User
+    participant CRM as CRM/ERP
+    participant APP as Architect App
+    participant AI as GPT-4 Engine
+    participant ST as Secure Storage
 
-    User->>CRM: Opens "Generate Document" Tab
-    CRM->>App: Loads Sidebar Interface
-    User->>App: Selects Template & Inputs Company Data
-    App->>AI: Sends Structured Prompt with Context
-    AI->>App: Returns Draft Document
-    App->>User: Displays Draft for Review
-    User->>App: Edits & Approves
-    App->>CRM: Creates/Updates "Company Document" Record
-    App->>DB: Saves Final PDF to Secure Vault
-    CRM->>User: Confirms Success & Triggers Notification
+    U->>CRM: Open Company Record
+    CRM->>APP: Launch Sidebar App
+    U->>APP: Select Template & Input Data
+    APP->>AI: Send Prompt with Context
+    AI-->>APP: Return Draft Document
+    APP->>U: Display Draft for Review
+    U->>APP: Approve & Save
+    APP->>ST: Store Final PDF
+    APP->>CRM: Link Document to Company Record
 ```
+
+---
 
 ## Use Cases 🎯
 
-*   **Onboarding New Clients:** Generate a tailored services agreement or NDA instantly after creating a company record.
-*   **Scaling Your Team:** Quickly produce a customized employee handbook for a new hire based on their role and location.
-*   **Preparing for Audit:** Ensure all client-facing documentation is consistent, up-to-date, and easily accessible.
-*   **Entering New Markets:** Adapt your core company profile and policies to meet the specific requirements of a new industry or region.
+* **Onboarding New Clients**: Instantly generate NDAs and service agreements.
+* **Scaling Your Team**: Create role- and region-specific employee handbooks.
+* **Audit Preparation**: Maintain consistent, up-to-date, accessible compliance documentation.
+* **Market Expansion**: Adapt policies to meet new regional or industry requirements.
+
+---
 
 ## Installation & Setup 🚀
 
 ### Prerequisites
-- An active account with a supported CRM (HubSpot, Salesforce, or Zoho).
-- Administrator access to your CRM to install custom applications.
-- An API key for OpenAI GPT-4.
+
+* Active account with a supported CRM/ERP (**HubSpot, Salesforce, Zoho, SAP, Oracle**).
+* Administrator access to install custom apps.
+* OpenAI GPT-4 API key.
 
 ### Installation Steps (HubSpot Example)
 
-1.  **Download:** Clone this repository or download the latest package from [Releases](https://github.com/yourusername/ai-compliance-architect/releases).
-2.  **Install App:** In your HubSpot account, navigate to `Settings` > `Marketplace` > `App Marketplace` and click `Upload app`. Select the downloaded `.zip` file.
-3.  **Configure API Key:** In the app settings, navigate to the `Configuration` tab and enter your OpenAI API key.
-4.  **Configure Custom Objects:** The installer will automatically create the required "Company Document" custom object.
-5.  **Assign Permissions:** Ensure your team members have the correct permissions to access the app and custom objects.
+1. **Download**: Clone this repository or download the latest release package.
+2. **Install App**:
+
+   * In HubSpot, go to **Settings > Marketplace > App Marketplace** → *Upload App*.
+   * Upload the downloaded `.zip` file.
+3. **Configure API Key**:
+
+   * Go to **App Settings > Configuration**.
+   * Enter your **OpenAI API key**.
+4. **Configure Custom Objects**:
+
+   * Installer auto-creates `Company Document` object.
+5. **Assign Permissions**:
+
+   * Grant access to relevant teams and users.
 
 ### Generating Your First Document
 
-1.  Navigate to a **Company** record within your CRM.
-2.  Look for the **"AI Compliance Architect"** tab in the sidebar.
-3.  Select a document template (e.g., "Company Profile").
-4.  Fill in any specific details in the form provided.
-5.  Click **"Generate Draft."**
-6.  Review, edit, and approve the generated text. It will automatically be saved to the company's record.
+1. Open a **Company Record** in HubSpot.
+2. Look for the **AI Compliance Architect** tab in the sidebar.
+3. Select a **Document Template**.
+4. Complete the form fields.
+5. Click **Generate Draft** → Review → Approve.
+6. Document auto-saves to company record.
 
-## Architecture ⚙️
+---
 
-The application is built on a modern, secure microservices architecture:
+## Integration Guide 🔗
 
-*   **Frontend:** React.js application embedded as a CRM sidebar app.
-*   **Backend:** Node.js server handling business logic and API requests.
-*   **AI Integration:** Secure proxy server managing prompts and responses to the OpenAI API.
-*   **Data Storage:** Utilizes CRM custom objects for metadata and a secure cloud storage bucket (e.g., AWS S3) for final PDF documents.
-*   **Security:** All API calls are encrypted in transit. Sensitive data like API keys are stored using the CRM's encrypted secrets store.
+The AI Compliance & Culture Architect is built to **integrate seamlessly with other enterprise tools**:
+
+### ✅ Supported CRMs & ERPs
+
+* **HubSpot CRM** (via Sidebar App + Custom Objects)
+* **Salesforce** (via Lightning Component + Custom Objects)
+* **Zoho CRM** (via Extensions Marketplace)
+* **SAP ERP / SAP Commerce Cloud** (via APIs and Business Add-Ons)
+* **Oracle Cloud ERP** (via REST API integration)
+
+### ✅ Productivity Suites
+
+* **Microsoft 365** (Word & SharePoint sync for policy docs)
+* **Google Workspace** (Docs/Drive sync)
+
+### ✅ Document Management Systems
+
+* **DocuSign** – Send generated NDAs for e-signature instantly.
+* **Dropbox / OneDrive** – Auto-sync final documents to company folders.
+
+### Integration Flow
+
+```mermaid
+flowchart LR
+    AIApp[AI Compliance Architect] --> CRM[CRM/ERP System]
+    AIApp --> DMS[Document Management (SharePoint, GDrive, Dropbox)]
+    AIApp --> HRMS[HR/Onboarding System]
+    AIApp --> Legal[DocuSign / E-Signature]
+```
+
+This ensures **end-to-end compliance automation** across CRM, ERP, HR, and Legal workflows.
+
+---
 
 ## Contributing 🤝
 
-We welcome contributions! Please feel free to submit pull requests or open issues for bugs and feature requests.
+We welcome contributions!
 
-1.  Fork the Project
-2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the Branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
+1. Fork the project
+2. Create a feature branch
 
-Please read our `CONTRIBUTING.md` guide for detailed instructions.
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+3. Commit changes
+
+   ```bash
+   git commit -m 'Add some AmazingFeature'
+   ```
+4. Push branch
+
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
+5. Open a Pull Request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+---
 
 ## License 📄
 
-This project is licensed under a proprietary license. See the `LICENSE` file for details. All rights reserved.
-
-## Disclaimer ⚠️
-
-**Important:** This tool generates drafts and should be used as a starting point for human review. It is not a substitute for professional legal advice. You are solely responsible for ensuring that any generated document meets your specific needs and complies with all applicable laws and regulations. Always consult with a qualified legal professional before implementing any new policy or agreement.
-
-## Support & Documentation 📚
-
-*   **[Full Documentation](https://github.com/yourusername/ai-compliance-architect/wiki)** – Get detailed guides on installation, configuration, and usage.
-*   **[Community Discussions](https://github.com/yourusername/ai-compliance-architect/discussions)** – Ask questions, share ideas, and get help from other users.
-*   **Report a Bug** – Please use the [GitHub Issues](https://github.com/yourusername/ai-compliance-architect/issues) page to report any bugs.
-
----
-**Automate your compliance. Empower your culture.**
