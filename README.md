@@ -40,9 +40,9 @@ Leveraging advanced AI, it automatically creates **tailored, industry-specific c
 flowchart TD
     User([CRM/ERP User]) -->|Open Sidebar| CRM[CRM/ERP Platform]
     CRM --> App[AI Compliance Architect App]
-    App --> Backend[Backend Service (Node.js)]
+    App --> Backend["Backend Service (Node.js)"]
     Backend -->|Prompt/Response| AI[OpenAI GPT-4 API]
-    Backend --> Storage[(Secure Storage: S3/Azure Blob)]
+    Backend --> Storage[("Secure Storage: S3/Azure Blob")]
     Storage --> CRM
     CRM --> User
 ````
@@ -151,7 +151,7 @@ The AI Compliance & Culture Architect is built to **integrate seamlessly with ot
 ```mermaid
 flowchart LR
     AIApp[AI Compliance Architect] --> CRM[CRM/ERP System]
-    AIApp --> DMS[Document Management (SharePoint, GDrive, Dropbox)]
+    AIApp --> DMS["Document Management (SharePoint, GDrive, Dropbox)"]
     AIApp --> HRMS[HR/Onboarding System]
     AIApp --> Legal[DocuSign / E-Signature]
 ```
